@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Use Case & Activity Diagram - Sistem Inventory PT. Bahari Global Machinery</title>
+    <title>Activity Diagram - Sistem Inventory PT. Bahari Global Machinery</title>
     <style>
         * {
             margin: 0;
@@ -60,139 +60,6 @@
             font-size: 12px;
         }
         
-        /* Use Case Diagram Styles */
-        .usecase-container {
-            display: flex;
-            gap: 60px;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
-        .actor-column {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-        .actor-figure {
-            text-align: center;
-        }
-        .actor-icon {
-            width: 80px;
-            height: 120px;
-            position: relative;
-        }
-        .actor-head {
-            width: 30px;
-            height: 30px;
-            border: 3px solid #3b82f6;
-            border-radius: 50%;
-            margin: 0 auto;
-        }
-        .actor-body {
-            width: 3px;
-            height: 35px;
-            background: #3b82f6;
-            margin: 0 auto;
-        }
-        .actor-arms {
-            width: 50px;
-            height: 3px;
-            background: #3b82f6;
-            margin: -25px auto 0;
-        }
-        .actor-legs {
-            width: 40px;
-            height: 35px;
-            border-left: 3px solid #3b82f6;
-            border-right: 3px solid #3b82f6;
-            margin: 0 auto;
-        }
-        .actor-name {
-            font-weight: 700;
-            color: #1e293b;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        .actor-role {
-            font-size: 12px;
-            color: #64748b;
-            background: #f1f5f9;
-            padding: 3px 10px;
-            border-radius: 10px;
-        }
-        
-        .system-boundary {
-            border: 3px solid #3b82f6;
-            border-radius: 20px;
-            padding: 30px;
-            min-width: 400px;
-            position: relative;
-        }
-        .system-label {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #3b82f6;
-            color: white;
-            padding: 8px 25px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 14px;
-        }
-        .usecase-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 15px;
-        }
-        .usecase-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 20px;
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 25px;
-            transition: all 0.3s;
-        }
-        .usecase-item:hover {
-            border-color: #3b82f6;
-            background: #eff6ff;
-        }
-        .usecase-icon {
-            font-size: 18px;
-        }
-        .usecase-text {
-            font-size: 14px;
-            color: #1e293b;
-        }
-        .usecase-code {
-            font-size: 11px;
-            color: #64748b;
-            background: white;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: auto;
-        }
-        
-        .connection-line {
-            width: 60px;
-            height: 2px;
-            background: #94a3b8;
-            position: relative;
-        }
-        .connection-line::after {
-            content: '';
-            position: absolute;
-            right: -5px;
-            top: -4px;
-            border: 5px solid transparent;
-            border-left: 8px solid #94a3b8;
-        }
-        
         /* Activity Diagram Styles */
         .activity-container {
             display: flex;
@@ -200,11 +67,6 @@
             align-items: center;
             gap: 8px;
             padding: 20px;
-        }
-        .activity-row {
-            display: flex;
-            align-items: center;
-            gap: 15px;
         }
         
         .node-start, .node-end {
@@ -214,6 +76,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
         .node-start {
             background: #22c55e;
@@ -292,15 +155,13 @@
             font-size: 24px;
             color: #94a3b8;
         }
-        .arrow-right {
-            font-size: 20px;
-            color: #94a3b8;
-        }
         
         .branch-container {
             display: flex;
             gap: 50px;
             align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .branch {
             display: flex;
@@ -318,43 +179,6 @@
         }
         .branch-label.yes { background: #dcfce7; color: #166534; }
         .branch-label.no { background: #fee2e2; color: #991b1b; }
-        
-        /* Swimlane */
-        .swimlane-container {
-            display: flex;
-            border: 2px solid #e2e8f0;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        .swimlane {
-            flex: 1;
-            min-width: 300px;
-            border-right: 2px solid #e2e8f0;
-        }
-        .swimlane:last-child {
-            border-right: none;
-        }
-        .swimlane-header {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-weight: 700;
-        }
-        .swimlane-header.staff {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-        }
-        .swimlane-header.system {
-            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-        }
-        .swimlane-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            min-height: 400px;
-        }
         
         /* Legend */
         .legend {
@@ -385,23 +209,20 @@
         .legend-shape.decision { background: #f59e0b; transform: rotate(45deg); width: 20px; height: 20px; }
         .legend-shape.input { background: #8b5cf6; }
         .legend-shape.output { background: #22c55e; }
+        .legend-shape.database { background: #06b6d4; }
         
-        /* Divider */
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin: 30px 0;
+        /* Info Box */
+        .info-box {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 15px 20px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 20px;
         }
-        .divider-line {
-            flex: 1;
-            height: 2px;
-            background: #e2e8f0;
-        }
-        .divider-text {
-            color: #64748b;
-            font-size: 14px;
-            font-weight: 600;
+        .info-box p {
+            color: #92400e;
+            font-size: 13px;
+            line-height: 1.6;
         }
         
         /* Print */
@@ -409,171 +230,32 @@
             body { padding: 10px; }
             .section { page-break-inside: avoid; box-shadow: none; border: 1px solid #e2e8f0; }
         }
-
-        /* Note box */
-        .note-box {
-            background: #fffbeb;
-            border-left: 4px solid #f59e0b;
-            padding: 15px 20px;
-            border-radius: 0 10px 10px 0;
-            margin-bottom: 20px;
-        }
-        .note-box p {
-            color: #92400e;
-            font-size: 13px;
+        
+        .footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 12px;
+            margin-top: 50px;
+            padding: 30px;
+            border-top: 1px solid #e2e8f0;
         }
     </style>
 </head>
 <body>
-    <h1>📊 Use Case & Activity Diagram</h1>
-    <h2>Sistem Inventory PT. Bahari Global Machinery - Min-Max & Forecasting</h2>
+    <h1>📊 Activity Diagram - Sistem Inventory</h1>
+    <h2>PT. Bahari Global Machinery - Min-Max & Forecasting</h2>
     
     <div class="diagram-container">
-        
-        <!-- ==================== USE CASE DIAGRAM ==================== -->
-        <div class="section">
-            <div class="section-title">
-                <span>1</span>
-                Use Case Diagram - Sistem Inventory PT. Bahari Global Machinery
-            </div>
-            
-            <div class="usecase-container">
-                <!-- Actor Admin -->
-                <div class="actor-column">
-                    <div class="actor-figure">
-                        <div class="actor-icon">
-                            <div class="actor-head"></div>
-                            <div class="actor-body"></div>
-                            <div class="actor-arms"></div>
-                            <div class="actor-legs"></div>
-                        </div>
-                        <div class="actor-name">Admin</div>
-                        <div class="actor-role">Full Access</div>
-                    </div>
-                </div>
-                
-                <!-- System Boundary -->
-                <div class="system-boundary">
-                    <div class="system-label">📦 SISTEM INVENTORY PT. Bahari Global Machinery</div>
-                    
-                    <div class="usecase-list">
-                        <div class="usecase-item">
-                            <span class="usecase-icon">🔐</span>
-                            <span class="usecase-text">Login / Logout</span>
-                            <span class="usecase-code">UC-01</span>
-                        </div>
-                        <div class="usecase-item">
-                            <span class="usecase-icon">📦</span>
-                            <span class="usecase-text">Kelola Data Barang</span>
-                            <span class="usecase-code">UC-02</span>
-                        </div>
-                        <div class="usecase-item">
-                            <span class="usecase-icon">👥</span>
-                            <span class="usecase-text">Kelola Data Customer</span>
-                            <span class="usecase-code">UC-03</span>
-                        </div>
-                        <div class="usecase-item">
-                            <span class="usecase-icon">👨‍💼</span>
-                            <span class="usecase-text">Kelola Data Sales</span>
-                            <span class="usecase-code">UC-04</span>
-                        </div>
-                        <div class="usecase-item">
-                            <span class="usecase-icon">💰</span>
-                            <span class="usecase-text">Catat Penjualan</span>
-                            <span class="usecase-code">UC-05</span>
-                        </div>
-                        <div class="usecase-item">
-                            <span class="usecase-icon">📋</span>
-                            <span class="usecase-text">Buat Pemesanan</span>
-                            <span class="usecase-code">UC-06</span>
-                        </div>
-                        <div class="usecase-item">
-                            <span class="usecase-icon">📥</span>
-                            <span class="usecase-text">Catat Penerimaan Barang</span>
-                            <span class="usecase-code">UC-07</span>
-                        </div>
-                        <div class="usecase-item">
-                            <span class="usecase-icon">📊</span>
-                            <span class="usecase-text">Lihat Stok Barang</span>
-                            <span class="usecase-code">UC-08</span>
-                        </div>
-                        <div class="usecase-item">
-                            <span class="usecase-icon">🔤</span>
-                            <span class="usecase-text">Analisis ABC</span>
-                            <span class="usecase-code">UC-09</span>
-                        </div>
-                        <div class="usecase-item">
-                            <span class="usecase-icon">📈</span>
-                            <span class="usecase-text">Lihat Min-Max Stock</span>
-                            <span class="usecase-code">UC-10</span>
-                        </div>
-                        <div class="usecase-item">
-                            <span class="usecase-icon">📉</span>
-                            <span class="usecase-text">Lihat Forecasting</span>
-                            <span class="usecase-code">UC-11</span>
-                        </div>
-                        <div class="usecase-item">
-                            <span class="usecase-icon">🖨️</span>
-                            <span class="usecase-text">Cetak Laporan</span>
-                            <span class="usecase-code">UC-12</span>
-                        </div>
-                        <div class="usecase-item">
-                            <span class="usecase-icon">👤</span>
-                            <span class="usecase-text">Kelola User</span>
-                            <span class="usecase-code">UC-13</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Actor Staff -->
-                <div class="actor-column">
-                    <div class="actor-figure">
-                        <div class="actor-icon">
-                            <div class="actor-head" style="border-color: #22c55e;"></div>
-                            <div class="actor-body" style="background: #22c55e;"></div>
-                            <div class="actor-arms" style="background: #22c55e;"></div>
-                            <div class="actor-legs" style="border-color: #22c55e;"></div>
-                        </div>
-                        <div class="actor-name">Staff</div>
-                        <div class="actor-role">View Only</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Hak Akses Table -->
-            <div style="margin-top: 30px; overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
-                    <thead>
-                        <tr style="background: #f1f5f9;">
-                            <th style="padding: 12px; border: 1px solid #e2e8f0; text-align: left;">Use Case</th>
-                            <th style="padding: 12px; border: 1px solid #e2e8f0; text-align: center; width: 100px;">Admin</th>
-                            <th style="padding: 12px; border: 1px solid #e2e8f0; text-align: center; width: 100px;">Staff</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-01: Login/Logout</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-02: Kelola Data Barang</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">❌</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-03: Kelola Data Customer</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">❌</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-04: Kelola Data Sales</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">❌</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-05: Catat Penjualan</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">❌</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-06: Buat Pemesanan</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">❌</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-07: Catat Penerimaan</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">❌</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-08: Lihat Stok Barang</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-09: Analisis ABC</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅ (View)</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-10: Lihat Min-Max</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-11: Lihat Forecasting</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-12: Cetak Laporan</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #e2e8f0;">UC-13: Kelola User</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">✅</td><td style="padding: 10px; border: 1px solid #e2e8f0; text-align: center;">❌</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
         
         <!-- ==================== ACTIVITY DIAGRAM: LOGIN ==================== -->
         <div class="section">
             <div class="section-title">
-                <span>2</span>
+                <span>1</span>
                 Activity Diagram - Login (UC-01)
+            </div>
+            
+            <div class="info-box">
+                <p><strong>Deskripsi:</strong> Proses autentikasi user (Admin/Staff) melalui form login dengan validasi ke database.</p>
             </div>
             
             <div class="activity-container">
@@ -601,7 +283,7 @@
                     <div class="branch">
                         <div class="branch-label yes">Ya</div>
                         <div class="arrow-down">↓</div>
-                        <div class="activity-action output">Simpan Session</div>
+                        <div class="activity-action database">Simpan Session</div>
                         <div class="arrow-down">↓</div>
                         <div class="activity-action output">Redirect ke Dashboard</div>
                     </div>
@@ -615,18 +297,19 @@
                 </div>
                 
                 <div class="arrow-down" style="margin-top: 20px;">↓</div>
-                <div class="node-end" style="position: relative;">
-                    <div style="position: absolute; width: 20px; height: 20px; background: white; border-radius: 50%;"></div>
-                    <div style="position: absolute; width: 12px; height: 12px; background: #1e293b; border-radius: 50%;"></div>
-                </div>
+                <div class="node-end"></div>
             </div>
         </div>
         
         <!-- ==================== ACTIVITY DIAGRAM: KELOLA BARANG ==================== -->
         <div class="section">
             <div class="section-title">
-                <span>3</span>
+                <span>2</span>
                 Activity Diagram - Kelola Data Barang (UC-02)
+            </div>
+            
+            <div class="info-box">
+                <p><strong>Deskripsi:</strong> Admin dapat menambah, edit, hapus, atau mencari data barang dengan berbagai aksi CRUD.</p>
             </div>
             
             <div class="activity-container">
@@ -672,30 +355,24 @@
                         <div class="arrow-down">↓</div>
                         <div class="activity-action database">Delete dari Database</div>
                     </div>
-                    <div class="branch">
-                        <div class="branch-label" style="background: #dcfce7; color: #166534;">Cari</div>
-                        <div class="arrow-down">↓</div>
-                        <div class="activity-action input">Input Keyword</div>
-                        <div class="arrow-down">↓</div>
-                        <div class="activity-action database">Query Search</div>
-                    </div>
                 </div>
                 
                 <div class="arrow-down" style="margin-top: 20px;">↓</div>
                 <div class="activity-action output">Tampilkan Hasil / Pesan Sukses</div>
                 <div class="arrow-down">↓</div>
-                <div class="node-end" style="position: relative;">
-                    <div style="position: absolute; width: 20px; height: 20px; background: white; border-radius: 50%;"></div>
-                    <div style="position: absolute; width: 12px; height: 12px; background: #1e293b; border-radius: 50%;"></div>
-                </div>
+                <div class="node-end"></div>
             </div>
         </div>
         
         <!-- ==================== ACTIVITY DIAGRAM: PENJUALAN ==================== -->
         <div class="section">
             <div class="section-title">
-                <span>4</span>
+                <span>3</span>
                 Activity Diagram - Catat Penjualan (UC-05)
+            </div>
+            
+            <div class="info-box">
+                <p><strong>Deskripsi:</strong> Admin mencatat transaksi penjualan dengan validasi stok. Stok barang otomatis berkurang saat penjualan berhasil disimpan.</p>
             </div>
             
             <div class="activity-container">
@@ -751,18 +428,19 @@
                 </div>
                 
                 <div class="arrow-down" style="margin-top: 20px;">↓</div>
-                <div class="node-end" style="position: relative;">
-                    <div style="position: absolute; width: 20px; height: 20px; background: white; border-radius: 50%;"></div>
-                    <div style="position: absolute; width: 12px; height: 12px; background: #1e293b; border-radius: 50%;"></div>
-                </div>
+                <div class="node-end"></div>
             </div>
         </div>
         
         <!-- ==================== ACTIVITY DIAGRAM: ANALISIS ABC ==================== -->
         <div class="section">
             <div class="section-title">
-                <span>5</span>
+                <span>4</span>
                 Activity Diagram - Analisis ABC (UC-09)
+            </div>
+            
+            <div class="info-box">
+                <p><strong>Deskripsi:</strong> Sistem otomatis menghitung klasifikasi barang berdasarkan nilai penjualan kumulatif menggunakan metode Pareto (80/20 rule).</p>
             </div>
             
             <div class="activity-container">
@@ -772,13 +450,13 @@
                 <div class="activity-action">Buka Menu Analisis ABC</div>
                 <div class="arrow-down">↓</div>
                 
-                <div class="activity-action database">Ambil Data Penjualan</div>
+                <div class="activity-action database">Ambil Data Penjualan Semua Barang</div>
                 <div class="arrow-down">↓</div>
                 
                 <div class="activity-action process">Hitung Total Nilai Penjualan per Barang</div>
                 <div class="arrow-down">↓</div>
                 
-                <div class="activity-action process">Urutkan dari Nilai Tertinggi</div>
+                <div class="activity-action process">Urutkan dari Nilai Tertinggi ke Terendah</div>
                 <div class="arrow-down">↓</div>
                 
                 <div class="activity-action process">Hitung Persentase Kumulatif</div>
@@ -794,39 +472,40 @@
                         <div class="branch-label" style="background: #dcfce7; color: #166534;">0-70%</div>
                         <div class="arrow-down">↓</div>
                         <div class="activity-action" style="background: #22c55e;">Kategori A</div>
-                        <div style="font-size: 12px; color: #64748b; margin-top: 5px;">Barang Penting</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 5px; text-align: center;">Barang Penting<br>Banyak Dibeli</div>
                     </div>
                     <div class="branch">
                         <div class="branch-label" style="background: #fef3c7; color: #92400e;">70-90%</div>
                         <div class="arrow-down">↓</div>
                         <div class="activity-action" style="background: #f59e0b;">Kategori B</div>
-                        <div style="font-size: 12px; color: #64748b; margin-top: 5px;">Cukup Penting</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 5px; text-align: center;">Cukup Penting<br>Sedang Dibeli</div>
                     </div>
                     <div class="branch">
                         <div class="branch-label" style="background: #fee2e2; color: #991b1b;">90-100%</div>
                         <div class="arrow-down">↓</div>
                         <div class="activity-action" style="background: #ef4444;">Kategori C</div>
-                        <div style="font-size: 12px; color: #64748b; margin-top: 5px;">Kurang Penting</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 5px; text-align: center;">Kurang Penting<br>Jarang Dibeli</div>
                     </div>
                 </div>
                 
                 <div class="arrow-down" style="margin-top: 20px;">↓</div>
-                <div class="activity-action database">Update Kategori di Database</div>
+                <div class="activity-action database">Update Kategori ABC di Database</div>
                 <div class="arrow-down">↓</div>
-                <div class="activity-action output">Tampilkan Grafik & Tabel ABC</div>
+                <div class="activity-action output">Tampilkan Grafik, Tabel, & Statistik ABC</div>
                 <div class="arrow-down">↓</div>
-                <div class="node-end" style="position: relative;">
-                    <div style="position: absolute; width: 20px; height: 20px; background: white; border-radius: 50%;"></div>
-                    <div style="position: absolute; width: 12px; height: 12px; background: #1e293b; border-radius: 50%;"></div>
-                </div>
+                <div class="node-end"></div>
             </div>
         </div>
         
         <!-- ==================== ACTIVITY DIAGRAM: MIN-MAX ==================== -->
         <div class="section">
             <div class="section-title">
-                <span>6</span>
+                <span>5</span>
                 Activity Diagram - Cek Min-Max Stock (UC-10)
+            </div>
+            
+            <div class="info-box">
+                <p><strong>Deskripsi:</strong> Monitor status stok setiap barang berdasarkan batas minimum dan maksimum yang telah ditetapkan. Sistem memberikan indikator warna dan rekomendasi order otomatis.</p>
             </div>
             
             <div class="activity-container">
@@ -851,32 +530,94 @@
                     <div class="branch">
                         <div class="branch-label" style="background: #fee2e2; color: #991b1b;">Stok ≤ Min</div>
                         <div class="arrow-down">↓</div>
-                        <div class="activity-action" style="background: #ef4444;">🔴 Status: RESTOCK</div>
-                        <div style="font-size: 12px; color: #64748b; margin-top: 5px;">Harus Segera Order</div>
+                        <div class="activity-action" style="background: #ef4444;">🔴 RESTOCK</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 5px; text-align: center;">Harus Segera Order<br>Qty = Max - Stok</div>
                     </div>
                     <div class="branch">
-                        <div class="branch-label" style="background: #fef3c7; color: #92400e;">Stok Mendekati Min</div>
+                        <div class="branch-label" style="background: #fef3c7; color: #92400e;">Min &lt; Stok &lt; Max<br>Zona Aman</div>
                         <div class="arrow-down">↓</div>
-                        <div class="activity-action" style="background: #f59e0b;">🟡 Status: MENIPIS</div>
-                        <div style="font-size: 12px; color: #64748b; margin-top: 5px;">Perlu Perhatian</div>
+                        <div class="activity-action" style="background: #22c55e;">🟢 AMAN</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 5px; text-align: center;">Tidak Perlu Order<br>Stok Optimal</div>
                     </div>
                     <div class="branch">
-                        <div class="branch-label" style="background: #dcfce7; color: #166534;">Stok > 30% Range</div>
+                        <div class="branch-label" style="background: #bfdbfe; color: #1e40af;">Stok > Max</div>
                         <div class="arrow-down">↓</div>
-                        <div class="activity-action" style="background: #22c55e;">🟢 Status: AMAN</div>
-                        <div style="font-size: 12px; color: #64748b; margin-top: 5px;">Tidak Perlu Order</div>
+                        <div class="activity-action" style="background: #3b82f6;">🔵 PENUH</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 5px; text-align: center;">Jangan Order<br>Stok Sudah Cukup</div>
                     </div>
                 </div>
                 
                 <div class="arrow-down" style="margin-top: 20px;">↓</div>
                 <div class="activity-action process">Hitung Rekomendasi Order = Max - Stok</div>
                 <div class="arrow-down">↓</div>
-                <div class="activity-action output">Tampilkan Tabel dengan Indikator Warna</div>
+                <div class="activity-action output">Tampilkan Tabel dengan Indikator Warna & Rekomendasi</div>
                 <div class="arrow-down">↓</div>
-                <div class="node-end" style="position: relative;">
-                    <div style="position: absolute; width: 20px; height: 20px; background: white; border-radius: 50%;"></div>
-                    <div style="position: absolute; width: 12px; height: 12px; background: #1e293b; border-radius: 50%;"></div>
+                <div class="node-end"></div>
+            </div>
+        </div>
+        
+        <!-- ==================== ACTIVITY DIAGRAM: MSB ==================== -->
+        <div class="section">
+            <div class="section-title">
+                <span>6</span>
+                Activity Diagram - Monitoring MSB (UC-12)
+            </div>
+            
+            <div class="info-box">
+                <p><strong>Deskripsi:</strong> <strong>Minimum Safety Buffer (MSB)</strong> adalah zona alert dini sebelum stok masuk status restock. Memberikan waktu tambahan untuk proses pengadaan barang sebelum benar-benar habis.</p>
+            </div>
+            
+            <div class="activity-container">
+                <div class="node-start"></div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-action">Buka Menu MSB (Buffer)</div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-action database">Ambil Data Barang dengan Stok, Min, Max</div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-action process">Hitung Batas MSB:</div>
+                <div style="font-size: 12px; color: #64748b; margin: 10px 0; background: #f1f5f9; padding: 10px; border-radius: 8px;">
+                    <strong>Rumus:</strong> MSB_Threshold = Min + 30% × (Max - Min)
                 </div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-action process">Loop: Untuk Setiap Barang</div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-decision">
+                    <span>Cek Status</span>
+                </div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="branch-container">
+                    <div class="branch">
+                        <div class="branch-label" style="background: #fee2e2; color: #991b1b;">Stok ≤ Min</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action" style="background: #dc2626;">🔴 RESTOCK</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 5px; text-align: center;">Kritis!<br>Segera Order</div>
+                    </div>
+                    <div class="branch">
+                        <div class="branch-label" style="background: #fecaca; color: #991b1b;">Min &lt; Stok ≤<br>MSB_Threshold</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action" style="background: #f97316;">🟠 MSB BUFFER</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 5px; text-align: center;">Alert Dini<br>Persiapkan Order</div>
+                    </div>
+                    <div class="branch">
+                        <div class="branch-label" style="background: #dcfce7; color: #166534;">Stok ><br>MSB_Threshold</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action" style="background: #16a34a;">🟢 AMAN</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 5px; text-align: center;">Stok Optimal<br>Tidak Perlu Order</div>
+                    </div>
+                </div>
+                
+                <div class="arrow-down" style="margin-top: 20px;">↓</div>
+                <div class="activity-action output">Tampilkan Daftar Barang dengan Status MSB</div>
+                <div class="arrow-down">↓</div>
+                <div class="activity-action output">Highlight Barang dalam Zona MSB</div>
+                <div class="arrow-down">↓</div>
+                <div class="node-end"></div>
             </div>
         </div>
         
@@ -885,6 +626,10 @@
             <div class="section-title">
                 <span>7</span>
                 Activity Diagram - Forecasting (UC-11)
+            </div>
+            
+            <div class="info-box">
+                <p><strong>Deskripsi:</strong> Sistem memprediksi penjualan bulan depan menggunakan metode Simple Moving Average (SMA) dari data penjualan 3 bulan terakhir.</p>
             </div>
             
             <div class="activity-container">
@@ -897,31 +642,114 @@
                 <div class="activity-action database">Ambil Data Penjualan 6 Bulan Terakhir</div>
                 <div class="arrow-down">↓</div>
                 
-                <div class="activity-action process">Kelompokkan per Bulan</div>
+                <div class="activity-action process">Kelompokkan Penjualan per Bulan</div>
                 <div class="arrow-down">↓</div>
                 
                 <div class="activity-action output">Tampilkan Grafik Trend Penjualan</div>
                 <div class="arrow-down">↓</div>
                 
                 <div class="activity-action process" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
-                    Metode: Simple Moving Average<br>
-                    <small style="font-weight: normal;">Prediksi = (Bulan1 + Bulan2 + Bulan3) / 3</small>
+                    Metode: Simple Moving Average (SMA)<br>
+                    <small style="font-weight: normal;">Prediksi = (Bln-1 + Bln-2 + Bln-3) / 3</small>
                 </div>
                 <div class="arrow-down">↓</div>
                 
-                <div class="activity-action process">Hitung Prediksi Bulan Depan</div>
+                <div class="activity-action process">Hitung Prediksi Qty & Nilai Bulan Depan</div>
                 <div class="arrow-down">↓</div>
                 
                 <div class="activity-action process">Hitung Rekomendasi Stok per Barang</div>
                 <div class="arrow-down">↓</div>
                 
-                <div class="activity-action output">Tampilkan:<br>• Prediksi Qty<br>• Prediksi Nilai<br>• Tabel Rekomendasi</div>
+                <div class="activity-action output">Tampilkan:<br>• Grafik Trend<br>• Tabel Prediksi<br>• Rekomendasi Stok</div>
                 <div class="arrow-down">↓</div>
                 
-                <div class="node-end" style="position: relative;">
-                    <div style="position: absolute; width: 20px; height: 20px; background: white; border-radius: 50%;"></div>
-                    <div style="position: absolute; width: 12px; height: 12px; background: #1e293b; border-radius: 50%;"></div>
+                <div class="node-end"></div>
+            </div>
+        </div>
+        
+        <!-- ==================== ACTIVITY DIAGRAM: CETAK LAPORAN ==================== -->
+        <div class="section">
+            <div class="section-title">
+                <span>8</span>
+                Activity Diagram - Cetak Laporan (UC-12)
+            </div>
+            
+            <div class="info-box">
+                <p><strong>Deskripsi:</strong> Admin/Staff dapat membuat dan mencetak berbagai jenis laporan berdasarkan data yang tersimpan dalam sistem.</p>
+            </div>
+            
+            <div class="activity-container">
+                <div class="node-start"></div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-action">Buka Menu Laporan</div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-action">Pilih Jenis Laporan</div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-decision">
+                    <span>Tipe Laporan</span>
                 </div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="branch-container">
+                    <div class="branch">
+                        <div class="branch-label" style="background: #dbeafe; color: #1e40af;">Penjualan</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action database">Query Tabel Penjualan</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action process">Hitung Total Qty & Nilai</div>
+                    </div>
+                    <div class="branch">
+                        <div class="branch-label" style="background: #fef3c7; color: #92400e;">Min-Max</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action database">Query Status Stok</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action process">Kelompokkan per Status</div>
+                    </div>
+                    <div class="branch">
+                        <div class="branch-label" style="background: #dcfce7; color: #166534;">Forecasting</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action database">Query Prediksi</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action process">Hitung Rekomendasi</div>
+                    </div>
+                </div>
+                
+                <div class="arrow-down" style="margin-top: 20px;">↓</div>
+                <div class="activity-action input">Pilih Range Tanggal (Opsional)</div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-action input">Pilih Format Export (PDF/Excel)</div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-action process">Generate Laporan</div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-action output">Tampilkan Preview Laporan</div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-decision">
+                    <span>Cetak?</span>
+                </div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="branch-container">
+                    <div class="branch">
+                        <div class="branch-label yes">Ya</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action output">Export & Cetak Laporan</div>
+                    </div>
+                    <div class="branch">
+                        <div class="branch-label no">Tidak</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action">Pembatalan</div>
+                    </div>
+                </div>
+                
+                <div class="arrow-down" style="margin-top: 20px;">↓</div>
+                <div class="node-end"></div>
             </div>
         </div>
         
@@ -934,44 +762,46 @@
             <div class="legend">
                 <div class="legend-item">
                     <div class="legend-shape start"></div>
-                    <span>Start Node (Mulai)</span>
+                    <span><strong>Start Node</strong> - Mulai proses</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-shape end"></div>
-                    <span>End Node (Selesai)</span>
+                    <span><strong>End Node</strong> - Selesai proses</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-shape action"></div>
-                    <span>Action (Aksi)</span>
+                    <span><strong>Action</strong> - Aksi sistem</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-shape input"></div>
-                    <span>Input (Masukan User)</span>
+                    <span><strong>Input</strong> - Masukan dari user</span>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-shape" style="background: #06b6d4;"></div>
-                    <span>Database Operation</span>
+                    <div class="legend-shape database"></div>
+                    <span><strong>Database</strong> - Operasi database</span>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-shape" style="background: #f59e0b;"></div>
-                    <span>Process (Proses/Kalkulasi)</span>
+                    <div class="legend-shape process" style="background: #f59e0b;"></div>
+                    <span><strong>Process</strong> - Kalkulasi/proses</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-shape output"></div>
-                    <span>Output (Hasil/Tampilan)</span>
+                    <span><strong>Output</strong> - Hasil/tampilan</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-shape decision"></div>
-                    <span>Decision (Keputusan)</span>
+                    <span><strong>Decision</strong> - Keputusan</span>
                 </div>
             </div>
         </div>
         
-    </div>
-    
-    <div style="text-align: center; margin-top: 40px; color: #64748b; font-size: 12px;">
-        <p>📊 Use Case & Activity Diagram - Sistem Inventory PT. Bahari Global Machinery</p>
-        <p>Min-Max & Forecasting | © 2026</p>
+        <!-- FOOTER -->
+        <div class="footer">
+            <p><strong>Activity Diagram - Sistem Inventory PT. Bahari Global Machinery</strong></p>
+            <p>Min-Max Control, MSB Buffer Alert, & Forecasting</p>
+            <p style="margin-top: 10px; font-size: 11px;">© 2026 - Untuk Laporan Sempro</p>
+        </div>
+        
     </div>
 </body>
 </html>
