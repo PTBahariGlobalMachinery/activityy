@@ -621,10 +621,79 @@
             </div>
         </div>
         
-        <!-- ==================== ACTIVITY DIAGRAM: FORECASTING ==================== -->
+        <!-- ==================== ACTIVITY DIAGRAM: CONTAINER ==================== -->
         <div class="section">
             <div class="section-title">
                 <span>7</span>
+                Activity Diagram - Kelola Container (UC-14)
+            </div>
+            
+            <div class="info-box">
+                <p><strong>Deskripsi:</strong> Container adalah satuan pengiriman fisik yang berisi barang dari supplier. Setiap container memiliki nomor unik dan dapat dilink ke penerimaan barang untuk tracking pengiriman.</p>
+            </div>
+            
+            <div class="activity-container">
+                <div class="node-start"></div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-action">Buka Menu Container</div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-action database">Tampilkan Daftar Container</div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="activity-decision">
+                    <span>Pilih Aksi</span>
+                </div>
+                <div class="arrow-down">↓</div>
+                
+                <div class="branch-container">
+                    <div class="branch">
+                        <div class="branch-label" style="background: #dbeafe; color: #1e40af;">Tambah</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action input">Input Nomor Container</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action input">Pilih Barang</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action input">Input Jumlah Koli & Unit</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action input">Link ke Penerimaan (Opsional)</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action database">Simpan ke Database</div>
+                    </div>
+                    <div class="branch">
+                        <div class="branch-label" style="background: #fef3c7; color: #92400e;">Edit</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action">Pilih Container</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action input">Update Data Container</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action database">Update Database</div>
+                    </div>
+                    <div class="branch">
+                        <div class="branch-label" style="background: #fee2e2; color: #991b1b;">Hapus</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action">Pilih Container</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action process">Konfirmasi Hapus</div>
+                        <div class="arrow-down">↓</div>
+                        <div class="activity-action database">Delete dari Database</div>
+                    </div>
+                </div>
+                
+                <div class="arrow-down" style="margin-top: 20px;">↓</div>
+                <div class="activity-action output">Tampilkan Hasil / Pesan Sukses</div>
+                <div class="arrow-down">↓</div>
+                <div class="activity-action output">Update Status Penerimaan jika Linked</div>
+                <div class="arrow-down">↓</div>
+                <div class="node-end"></div>
+            </div>
+        </div>
+        
+        <!-- ==================== ACTIVITY DIAGRAM: FORECASTING ==================== -->
+        <div class="section">
+            <div class="section-title">
+                <span>8</span>
                 Activity Diagram - Forecasting (UC-11)
             </div>
             
@@ -670,7 +739,7 @@
         <!-- ==================== ACTIVITY DIAGRAM: CETAK LAPORAN ==================== -->
         <div class="section">
             <div class="section-title">
-                <span>8</span>
+                <span>9</span>
                 Activity Diagram - Cetak Laporan (UC-12)
             </div>
             
